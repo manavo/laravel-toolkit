@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Login
+Register
 @stop
 
 @section('content')
