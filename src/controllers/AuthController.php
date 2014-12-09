@@ -41,7 +41,7 @@ class AuthController extends BaseController
                 try {
                     $user->save();
 
-                    Event::fire('user.registered', ['user' => $user]);
+                    Event::fire('user.registered', [$user]);
 
                     Auth::login($user);
 
