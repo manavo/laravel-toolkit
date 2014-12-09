@@ -1,6 +1,6 @@
 <?php namespace Manavo\LaravelToolkit;
 
-use View, Validator, Input, User, Hash, Auth, Request, Redirect, Exception;
+use View, Validator, Input, User, Hash, Auth, Request, Redirect, Exception, Event;
 
 class AuthController extends BaseController
 {
