@@ -18,7 +18,13 @@ To register this provider, simply add the following to your composer.json file:
        "manavo/laravel-toolkit": "~0.0",
     }
 
-Then in your laravel project run:
+
+Next add this line to the $providers array in your /app/config/app.php file:
+    
+    'Manavo\LaravelToolkit\LaravelToolkitServiceProvider'
+
+
+Finally, in your laravel project run:
 
     composer update
     php artisan config:publish manavo/laravel-toolkit
