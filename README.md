@@ -19,11 +19,9 @@ To register this provider, simply add the following to your composer.json file:
     }
 
 Then in your laravel project run:
-
     composer update
     php artisan config:publish manavo/laravel-toolkit
     php artisan asset:publish
-
 and you're good to go!
 
 ## Layout file
