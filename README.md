@@ -27,9 +27,11 @@ Next add this line to the $providers array in your /app/config/app.php file:
 
 Finally, in your laravel project run:
 
-    composer update
-    php artisan config:publish manavo/laravel-toolkit
-    php artisan asset:publish
+```shell
+ composer update
+ php artisan config:publish manavo/laravel-toolkit
+ php artisan asset:publish
+```
 
 and you're good to go!
 
