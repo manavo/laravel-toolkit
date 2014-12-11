@@ -8,15 +8,15 @@ It's a bunch of things that I end up repeating in each project I start, so I'm j
 
 To register this provider, simply add the following to your composer.json file:
 
-`"repositories": [
-   {
-       "type": "vcs",
-       "url": "https://github.com/manavo/laravel-toolkit"
-   }
-],
-"require": {
-   "manavo/laravel-toolkit": "~0.0",
-},`
+    "repositories": [
+       {
+           "type": "vcs",
+           "url": "https://github.com/manavo/laravel-toolkit"
+       }
+    ],
+    "require": {
+       "manavo/laravel-toolkit": "~0.0",
+    }
 
 The run `composer update` and you're good to go!
 
