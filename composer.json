@@ -14,11 +14,10 @@
     },
     "autoload": {
         "classmap": [
-			"src/controllers",
 			"src/libraries",
 			"src/migrations"
         ],
-        "psr-0": {
+        "psr-4": {
             "Manavo\\LaravelToolkit\\": "src/"
         }
     },

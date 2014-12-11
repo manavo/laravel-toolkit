@@ -1,4 +1,4 @@
-<?php namespace Manavo\LaravelToolkit;
+<?php namespace Manavo\LaravelToolkit\Controllers;
 
 use View, Input, Password, Redirect, App, Hash, Lang;
 

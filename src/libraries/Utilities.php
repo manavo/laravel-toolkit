@@ -67,12 +67,18 @@ class Utilities
     public static function publishAssets($force = false)
     {
         $css = [];
-        foreach (Config::get('manavo/laravel-toolkit::assets.css') as $cssFile) {
-            $css[] = new FileAsset(public_path($cssFile));
+        $cssAssets = Config::get('manavo/laravel-toolkit::assets.css');
+        if (is_array($cssAssets)) {
+            foreach ($cssAssets as $cssFile) {
+                $css[] = new FileAsset(public_path($cssFile));
+            }
         }
         $js = [];
-        foreach (Config::get('manavo/laravel-toolkit::assets.js') as $jsFile) {
-            $js[] = new FileAsset(public_path($jsFile));
+        $jsAssets = Config::get('manavo/laravel-toolkit::assets.js');
+        if (is_array($jsAssets)) {
+            foreach ($jsAssets as $jsFile) {
+                $js[] = new FileAsset(public_path($jsFile));
+            }
         }
 
         $am = new AssetManager();

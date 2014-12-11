@@ -1,7 +1,8 @@
-<?php namespace Manavo\LaravelToolkit;
+<?php namespace Manavo\LaravelToolkit\Controllers;
 
 use \Illuminate\Routing\Controller;
 use Cache, App, View, Response;
+use Manavo\LaravelToolkit\Utilities;
 
 class BaseController extends Controller
 {

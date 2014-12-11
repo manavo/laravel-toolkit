@@ -19,11 +19,11 @@ class LaravelToolkitServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('manavo/laravel-toolkit', 'manavo/laravel-toolkit');
+		$this->package('manavo/laravel-toolkit', 'manavo/laravel-toolkit', __DIR__);
 
-		View::addNamespace('manavo/laravel-toolkit', __DIR__.'/../../views');
+		View::addNamespace('manavo/laravel-toolkit', __DIR__.'/views');
 
-		include __DIR__.'/../../routes.php';
+		include __DIR__ . '/routes.php';
 	}
 
 	/**
