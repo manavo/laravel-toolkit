@@ -21,9 +21,16 @@ To register this provider, simply add the following to your composer.json file:
 ```
 
 Next add this line to the $providers array in your /app/config/app.php file:
-    
-    'Manavo\LaravelToolkit\LaravelToolkitServiceProvider'
 
+```
+'Manavo\LaravelToolkit\LaravelToolkitServiceProvider'
+```
+
+Then edit your BaseController.php file, and make it extend ```\Manavo\LaravelToolkit\Controllers\BaseController```
+
+```php
+class BaseController extends \Manavo\LaravelToolkit\Controllers\BaseController {
+```
 
 Finally, in your laravel project run:
 
