@@ -44,7 +44,7 @@ and you're good to go!
 
 ## Layout file
 
-You'll need to create a layout file in ```views/layouts``` named default.blade.php. It has the following sections you can use:
+You'll need to create a layout file in ```views/layouts``` named ```default.blade.php```. It has the following sections you can use:
 
 * title
 * head
