@@ -1,6 +1,6 @@
 <?php namespace Manavo\LaravelToolkit\Controllers;
 
-use View, Validator, Input, Auth, User, Response, Redirect, Exception, Event;
+use View, Validator, Input, Auth, User, Response, Redirect, Exception, Event, Hash;
 
 class SettingsController extends BaseController {
 
