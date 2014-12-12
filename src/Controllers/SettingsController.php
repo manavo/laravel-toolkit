@@ -41,7 +41,7 @@ class SettingsController extends BaseController {
 			}
 
 			$password = Input::get('password');
-			if ($password) {
+			if ($password && Hash::check($password, Auth::user()->password) === false) {
 				$user->password = Hash::make($password);
 
 				$changed[] = 'password';
