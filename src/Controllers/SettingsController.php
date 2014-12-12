@@ -8,7 +8,7 @@ class SettingsController extends BaseController {
 		$this->addPackageJs('pages/settings.js');
 
         if (View::exists('settings')) {
-            return View::make('settings');
+            return View::make('settings', array('user' => Auth::user()));
         }
 		return View::make('manavo/laravel-toolkit::settings', array('user' => Auth::user()));
 	}
