@@ -13,6 +13,8 @@ Register
 
             @include('manavo/laravel-toolkit::partials.alerts')
 
+            @yield('prepend-fields')
+
             <div class="form-group">
                 {{ Form::label('email', 'Email') }}
                 {{ Form::email('email', Input::get('email'), array('class' => 'form-control')) }}
@@ -27,6 +29,8 @@ Register
                 {{ Form::label('name', 'Your name', array('class' => '')) }}
                 {{ Form::text('name', Input::get('name'), array('class' => 'form-control')) }}
             </div>
+
+            @yield('append-fields')
 
             <div class="form-group">
                 <p class="text-right">

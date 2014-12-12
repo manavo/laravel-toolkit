@@ -9,6 +9,9 @@ class AuthController extends BaseController
     {
         $this->addPackageJs('pages/register.js');
 
+        if (View::exists('auth.register')) {
+            return View::make('auth.register');
+        }
         return View::make('manavo/laravel-toolkit::auth.register');
     }
 
@@ -69,6 +72,9 @@ class AuthController extends BaseController
     {
         $this->addPackageJs('pages/login.js');
 
+        if (View::exists('auth.login')) {
+            return View::make('auth.login');
+        }
         return View::make('manavo/laravel-toolkit::auth.login');
     }
 
