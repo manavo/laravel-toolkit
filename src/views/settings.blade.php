@@ -15,6 +15,8 @@ Settings
 
 				@include('manavo/laravel-toolkit::partials.alerts')
 
+                @yield('prepend-fields')
+
                 <div class="form-group">
                     {{ Form::label('name', 'Name', array('class' => 'control-label')) }}
                     {{ Form::text('name', $user->name, array('class' => 'form-control')) }}
@@ -27,6 +29,8 @@ Settings
                     {{ Form::label('password', 'New Password', array('class' => 'control-label')) }}
                     {{ Form::password('password', array('class' => 'form-control')) }}
                 </div>
+
+                @yield('append-fields')
 
                 <div class="form-group text-right">
                     {{ Form::submit('Save', array('class' => 'btn btn-primary', 'data-loading-text' => 'Saving...')) }}

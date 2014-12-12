@@ -1,12 +1,15 @@
 <?php namespace Manavo\LaravelToolkit\Controllers;
 
-use View, Validator, Input, Auth, User, Response, Redirect, Exception;
+use View, Validator, Input, Auth, User, Response, Redirect, Exception, Event;
 
 class SettingsController extends BaseController {
 
 	public function getIndex() {
 		$this->addPackageJs('pages/settings.js');
 
+        if (View::exists('settings')) {
+            return View::make('settings');
+        }
 		return View::make('manavo/laravel-toolkit::settings', array('user' => Auth::user()));
 	}
 
@@ -50,31 +53,33 @@ class SettingsController extends BaseController {
 				$changed[] = 'name';
 			}
 
-
-			if (count($changed) === 0) {
-				return Redirect::back()->with('info', 'You didn\'t change anything, so there was nothing to save');
-			}
-
-			$hasHaveVerb = 'have';
-			if (count($changed) === 1) {
-				$hasHaveVerb = 'has';
-			}
-
-			$last = array_pop($changed);
-
-			$changedString = implode(', ', $changed);
-			if (strlen($changedString) > 0) {
-				$changedString .= ' and ';
-			}
-			$changedString .= $last;
-
-			$successMessage = "Your ".$changedString.' '.$hasHaveVerb.' been changed!';
-
-
 			try {
-				$user->save();
+                $response = Event::fire('settings.update', [], true);
 
-				return Redirect::back()->with('success', $successMessage);
+                $changed = array_merge($changed, $response);
+
+                if (count($changed) === 0) {
+                    return Redirect::back()->with('info', 'You didn\'t change anything, so there was nothing to save');
+                }
+
+                $hasHaveVerb = 'have';
+                if (count($changed) === 1) {
+                    $hasHaveVerb = 'has';
+                }
+
+                $last = array_pop($changed);
+
+                $changedString = implode(', ', $changed);
+                if (strlen($changedString) > 0) {
+                    $changedString .= ' and ';
+                }
+                $changedString .= $last;
+
+                $successMessage = "Your ".$changedString.' '.$hasHaveVerb.' been changed!';
+
+                $user->save();
+
+                return Redirect::back()->with('success', $successMessage);
 			} catch (Exception $e) {
 				View::share('error', 'Could not save: '.$e->getMessage());
 				return $this->getIndex();
