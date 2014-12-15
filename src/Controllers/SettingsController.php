@@ -56,7 +56,9 @@ class SettingsController extends BaseController {
 			try {
                 $response = Event::fire('settings.update', [], true);
 
-                $changed = array_merge($changed, $response);
+		if (is_array($response)) {
+                	$changed = array_merge($changed, $response);
+		}
 
                 if (count($changed) === 0) {
                     return Redirect::back()->with('info', 'You didn\'t change anything, so there was nothing to save');
