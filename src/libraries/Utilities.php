@@ -45,8 +45,13 @@ class Utilities
     public static function asset($path)
     {
         $localFile = public_path() . '/' . $path;
-        $timestamp = filemtime($localFile);
-        $append = '?t=' . $timestamp;
+        // Check if it's a local file
+        if (file_exists($localFile)) {
+            $timestamp = filemtime($localFile);
+            $append = '?t=' . $timestamp;
+        } else {
+            $append = '';
+        }
 
         if (substr($path, -3) === 'css') {
             return '<link href="/' . $path . $append . '" rel="stylesheet" />';
