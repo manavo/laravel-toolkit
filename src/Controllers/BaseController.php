@@ -22,7 +22,11 @@ class BaseController extends Controller
 
     protected function addJs($file)
     {
-        $this->js[] = 'js/'.$file;
+        $prefix = '';
+        if (!starts_with($file, ['http:', 'https:'])) {
+            $prefix = 'js/';
+        }
+        $this->js[] = $prefix.$file;
 
         View::share('js', $this->js);
     }
@@ -36,7 +40,11 @@ class BaseController extends Controller
 
     protected function addCss($file)
     {
-        $this->css[] = 'css/'.$file;
+        $prefix = '';
+        if (!starts_with($file, ['http:', 'https:'])) {
+            $prefix = 'css/';
+        }
+        $this->css[] = $prefix.$file;
 
         View::share('css', $this->css);
     }
