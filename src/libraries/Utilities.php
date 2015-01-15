@@ -48,16 +48,18 @@ class Utilities
         // Check if it's a local file
         if (file_exists($localFile)) {
             $timestamp = filemtime($localFile);
+            $prefix = '/';
             $append = '?t=' . $timestamp;
         } else {
+            $prefix = '';
             $append = '';
         }
 
         if (substr($path, -3) === 'css') {
-            return '<link href="/' . $path . $append . '" rel="stylesheet" />';
+            return '<link href="' . $prefix . $path . $append . '" rel="stylesheet" />';
         } else {
             if (substr($path, -2) === 'js') {
-                return '<script src="/' . $path . $append . '" type="text/javascript"></script>';
+                return '<script src="' . $prefix . $path . $append . '" type="text/javascript"></script>';
             } else {
                 return '';
             }
