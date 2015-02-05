@@ -7,7 +7,7 @@
                 </li>
                 <li class="plan-price">
                     @if(is_int($plan['price']))
-                        <strong>{{ Application::getFormattedPlanPrice($plan['price']) }}</strong> / month
+                        <strong>{{ \Manavo\LaravelToolkit\Controllers\UpgradeController::getFormattedPlanPrice($plan['price']) }}</strong> / month
                     @else
                         <strong>{{ $plan['price'] }}</strong>
                     @endif

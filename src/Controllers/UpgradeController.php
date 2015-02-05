@@ -20,6 +20,16 @@ abstract class UpgradeController extends BaseController {
         return $value;
     }
 
+    public static function getFormattedPlanPrice($value) {
+        $newValue = self::adjustPlanPrice($value);
+
+        if ($value == $newValue) {
+            return '$'.$value;
+        } else {
+            return '<del class="old-price">$'.$value.'</del> $'.number_format($newValue, 2);
+        }
+    }
+
     public function getIndex() {
         $entity = $this->getEntityToUpgrade();
 
