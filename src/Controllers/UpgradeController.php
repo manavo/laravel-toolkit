@@ -5,7 +5,20 @@ use View, Validator, Input, Auth, Session, Response, Exception, Config, Stripe_C
 abstract class UpgradeController extends BaseController {
 
     protected abstract function getEntityToUpgrade();
-    protected abstract static function adjustPlanPrice($price);
+
+    protected static function adjustPlanPrice($value) {
+        /**
+         * @var Stripe_Coupon $coupon
+         */
+        $coupon = Session::get('stripeCouponObject');
+        if ($coupon) {
+            if ($coupon->percent_off) {
+                return $value - ($value * $coupon->percent_off/100);
+            }
+        }
+
+        return $value;
+    }
 
     public function getIndex() {
         $entity = $this->getEntityToUpgrade();
