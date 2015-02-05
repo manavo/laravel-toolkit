@@ -1,6 +1,6 @@
 <?php namespace Manavo\LaravelToolkit\Controllers;
 
-use View, Validator, Input, Auth, Session, Response, Exception;
+use View, Validator, Input, Auth, Session, Response, Exception, Config;
 
 abstract class UpgradeController extends BaseController {
 
