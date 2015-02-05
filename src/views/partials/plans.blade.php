@@ -1,6 +1,6 @@
 <div class="row flat" id="pricing-plans">
     @foreach(Config::get('manavo/laravel-toolkit::settings.plans') as $index => $plan)
-        <div class="col-lg-3 col-md-3 col-xs-6">
+        <div class="col-lg-{{ floor(12 / count(Config::get('manavo/laravel-toolkit::settings.plans'))) }} col-md-{{ floor(12 / count(Config::get('manavo/laravel-toolkit::settings.plans'))) }} col-xs-6">
             <ul class="plan plan{{ ($index+1) }} @if(isset($featuredPlan) && $featuredPlan) @if($featuredPlan === $plan['id']) featured @endif @elseif($plan['featured']) featured @endif ">
                 <li class="plan-name">
                     {{ $plan['name'] }}
