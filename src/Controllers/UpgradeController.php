@@ -27,7 +27,7 @@ abstract class UpgradeController extends BaseController {
         }
 
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js');
-        $this->addJs('pages/upgrade.js');
+        $this->addPackageJs('pages/upgrade.js');
 
         return View::make('manavo/laravel-toolkit::upgrade', ['entity' => $entity, 'currentPlan' => $currentPlan, 'plans' => $plans]);
     }
