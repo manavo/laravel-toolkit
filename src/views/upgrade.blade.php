@@ -6,7 +6,7 @@ Upgrade
 
 @section('content')
 
-@if(!$entity->isUpgraded())
+@if(!$entity->subscribed())
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <legend>Upgrade</legend>
