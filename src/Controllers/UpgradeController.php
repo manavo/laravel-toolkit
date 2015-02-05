@@ -52,7 +52,11 @@ abstract class UpgradeController extends BaseController {
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.min.js');
         $this->addPackageJs('pages/upgrade.js');
 
-        return View::make('manavo/laravel-toolkit::upgrade', ['entity' => $entity, 'currentPlan' => $currentPlan, 'plans' => $plans]);
+        $view = 'manavo/laravel-toolkit::upgrade';
+        if (View::exists('upgrade')) {
+            $view = 'upgrade';
+        }
+        return View::make($view, ['entity' => $entity, 'currentPlan' => $currentPlan, 'plans' => $plans]);
     }
 
     public function postCoupon() {
