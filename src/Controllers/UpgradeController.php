@@ -30,7 +30,7 @@ abstract class UpgradeController extends BaseController {
         }
 
         $currentPlan = null;
-        if ($entity->isUpgraded()) {
+        if ($entity->subscribed()) {
             foreach ($plans as $plan) {
                 if ($plan['id'] === $entity->getStripePlan()) {
                     $currentPlan = $plan;
