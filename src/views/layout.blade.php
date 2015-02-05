@@ -23,6 +23,8 @@
     <body>
         @yield('nav')
 
+        @yield('above-content')
+
         <div class="container wrapper">
             <div class="section">
                 @yield('content')
