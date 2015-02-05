@@ -13,6 +13,10 @@ Route::group(['before' => 'auth'], function() {
     Route::get('settings', '\Manavo\LaravelToolkit\Controllers\SettingsController@getIndex');
     Route::post('settings', '\Manavo\LaravelToolkit\Controllers\SettingsController@postIndex')->before('csrf');
 
+	Route::get('/upgrade', 'UpgradeController@getIndex');
+	Route::post('/upgrade/charge', 'UpgradeController@postCharge');
+	Route::post('/upgrade/coupon', ['as' => 'upgradeCoupon', 'uses' => 'UpgradeController@postCoupon']);
+
 	Route::get('logout', function() {
 		Auth::logout();
 
@@ -23,3 +27,5 @@ Route::group(['before' => 'auth'], function() {
 		}
 	});
 });
+
+Route::post('stripe/webhook', 'Laravel\Cashier\WebhookController@handleWebhook');

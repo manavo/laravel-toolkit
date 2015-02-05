@@ -12,4 +12,25 @@ return [
         ],
     ],
 
+    'settings' => [
+        'plans' => [
+            [
+                'id' => 'planid',
+                'name' => 'Plan Name',
+                'featured' => false,
+                'price' => 9,
+                'items' => [
+                    'Details',
+                ],
+            ],
+        ],
+    ],
+
+    'stripe' => [
+        'keys' => [
+            'secret' => '',
+            'publishable' => '',
+        ]
+    ],
+
 ];
