@@ -11,7 +11,11 @@ Upgrade
         <div class="col-md-10 col-md-offset-1">
             <legend>Upgrade</legend>
 
-            @include('manavo/laravel-toolkit::partials.plans', ['planAction' => '<a href="#" class="select-plan btn btn-danger btn-lg">Select</a>', 'featuredPlan' => $entity->plan])
+            @if(View::exists('partials.plans'))
+                @include('partials.plans', ['featuredPlan' => $entity->plan])
+            @else
+                @include('manavo/laravel-toolkit::partials.plans', ['planAction' => '<a href="#" class="select-plan btn btn-danger btn-lg">Select</a>', 'featuredPlan' => $entity->plan])
+            @endif
 
             {{ Form::open(['route' => 'upgradeCoupon', 'id' => 'upgrade-code', 'class' => 'form-inline']) }}
                 <legend>Have a discount code?</legend>
