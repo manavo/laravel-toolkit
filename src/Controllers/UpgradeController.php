@@ -1,6 +1,6 @@
 <?php namespace Manavo\LaravelToolkit\Controllers;
 
-use View, Validator, Input, Auth, Session, Response, Exception, Config;
+use View, Validator, Input, Auth, Session, Response, Exception, Config, Stripe_Coupon;
 
 abstract class UpgradeController extends BaseController {
 
