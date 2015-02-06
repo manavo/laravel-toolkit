@@ -63,7 +63,7 @@ Upgrade
     </script>
 @else
     <div class="text-center">
-        <h2>Current plan: {{ $currentPlan['name'] }} ({{ number_format($currentPlan['analyses']) }} analyses/month)</h2>
+        <h2>Current plan: {{ $currentPlan['name'] }}</h2>
         <a href="#" onclick="cancelSubscription($(this), '{{ Auth::user()->email }}'); return false;" data-loading-text="Cancelling subscription..." class="btn btn-danger">Cancel subscription</a>
     </div>
 @endif
