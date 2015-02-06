@@ -4,9 +4,9 @@
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="text-center">
-					<div id="loading-spinner"></div>
+					<div id="loading-spinner" style="position: relative; height: 50px;"></div>
 
-					<h4>{{ $message }}</h4>
+					<h4 style="margin-top: 20px; margin-bottom: 0;">{{ $message }}</h4>
 				</div>
 			</div>
 		</div>
