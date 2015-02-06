@@ -116,13 +116,6 @@ abstract class UpgradeController extends BaseController {
                 'email' => Auth::user()->email, 'description' => 'ID: '.$entity->id
             ]);
 
-            /**
-             * @var Member $member
-             */
-            foreach ($entity->members as $member) {
-                $member->queueAnalysisIfNeeded();
-            }
-
             return Response::make('Subscription created');
         } else {
             return Response::make(implode(PHP_EOL, $validator->messages()->all()), 400);
