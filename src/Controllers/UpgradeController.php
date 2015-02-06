@@ -33,7 +33,7 @@ abstract class UpgradeController extends BaseController {
     public function getIndex() {
         $entity = $this->getEntityToUpgrade();
 
-        $plans = Config::get('manavo/laravel-toolkit::settings.plans');
+        $plans = $this->getPlans();
 
         foreach ($plans as &$plan) {
             $plan['price'] = static::adjustPlanPrice($plan['price']);
@@ -57,6 +57,10 @@ abstract class UpgradeController extends BaseController {
             $view = 'upgrade';
         }
         return View::make($view, ['entity' => $entity, 'currentPlan' => $currentPlan, 'plans' => $plans]);
+    }
+
+    public static function getPlans() {
+        return Config::get('manavo/laravel-toolkit::settings.plans');
     }
 
     public function postCoupon() {
@@ -92,7 +96,7 @@ abstract class UpgradeController extends BaseController {
         );
 
         if ($validator->passes()) {
-            $allowedPlans = array_pluck(Config::get('manavo/laravel-toolkit::settings.plans'), 'id');
+            $allowedPlans = array_pluck($this->getPlans(), 'id');
 
             $plan = Input::get('plan');
             if (!in_array($plan, $allowedPlans)) {
